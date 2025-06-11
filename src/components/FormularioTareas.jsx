@@ -1,18 +1,16 @@
-import Form from 'react-bootstrap/Form';
+import { Form, Button } from 'react-bootstrap';
+import ListaTareas from './listaTareas';
 
 const formularioTareas = () => {
     return (
         <div>
             <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="name@example.com" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Example textarea</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
+                <Form.Group className="mb-3 d-flex" controlId="exampleForm.ControlInput1">
+                    <Form.Control type="text" placeholder="Ingresa una tarea" />
+                    <Button variant='info ms-3'>➕</Button>
                 </Form.Group>
             </Form>
+            <ListaTareas></ListaTareas>
         </div>
     );
 };
