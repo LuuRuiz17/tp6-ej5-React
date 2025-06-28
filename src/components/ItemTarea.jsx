@@ -1,9 +1,9 @@
 import { ListGroup, Button} from "react-bootstrap";
 
-const itemTarea = () => {
+const itemTarea = ({nombreTarea}) => {
     return (
         <ListGroup.Item className="d-flex justify-content-between">
-            Tarea 1 <Button variant="danger">✖️</Button>
+            {nombreTarea}<Button variant="danger">✖️</Button>
         </ListGroup.Item>
     );
 };

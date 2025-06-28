@@ -1,6 +1,7 @@
 import { Form, Button, FormText} from 'react-bootstrap';
 import ListaTareas from './listaTareas';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 const formularioTareas = () => {
     const {
@@ -10,8 +11,11 @@ const formularioTareas = () => {
         reset
     } = useForm() 
 
-    const agregarTarea = () => {
-        console.log("Aquí creé una tarea");
+    const [tareas , setTareas] = useState([])
+
+    const agregarTarea = (dato) => {
+        console.log(dato.tarea);
+        setTareas([...tareas, dato.tarea]); 
         reset();
     }
 
@@ -34,7 +38,7 @@ const formularioTareas = () => {
                 </Form.Group>
                 <Form.Text className='text-danger'>{errors.tarea?.message}</Form.Text>
             </Form>
-            <ListaTareas></ListaTareas>
+            <ListaTareas tareas={tareas}></ListaTareas>
         </div>
     );
 };
