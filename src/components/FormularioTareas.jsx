@@ -19,6 +19,13 @@ const formularioTareas = () => {
         reset();
     }
 
+    const borrarTarea = (nombreTarea) => {
+    // Filtrar el state tareas
+    const tareasFiltradas = tareas.filter((itemTarea) => itemTarea !== nombreTarea);
+    // Actualizamos el state
+    setTareas(tareasFiltradas);
+    }
+
     return (
         <div>
             <Form onSubmit={handleSubmit(agregarTarea)}>
@@ -38,7 +45,7 @@ const formularioTareas = () => {
                 </Form.Group>
                 <Form.Text className='text-danger'>{errors.tarea?.message}</Form.Text>
             </Form>
-            <ListaTareas tareas={tareas}></ListaTareas>
+            <ListaTareas tareas={tareas} borrarTarea = {borrarTarea}></ListaTareas>
         </div>
     );
 };
