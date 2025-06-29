@@ -1,7 +1,7 @@
 import { Form, Button, FormText} from 'react-bootstrap';
 import ListaTareas from './listaTareas';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const formularioTareas = () => {
     const {
@@ -12,6 +12,12 @@ const formularioTareas = () => {
     } = useForm() 
 
     const [tareas , setTareas] = useState([])
+
+    useEffect(()=>{
+        // Ejecuta automáticamente este código cuando suceda el ciclo de vida del componente
+        console.log("Hola desde useEffect 😍");
+        localStorage.setItem('tareas', JSON.stringify(tareas));
+    }, [tareas])
 
     const agregarTarea = (dato) => {
         console.log(dato.tarea);
