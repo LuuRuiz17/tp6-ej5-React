@@ -11,7 +11,8 @@ const formularioTareas = () => {
         reset
     } = useForm() 
 
-    const [tareas , setTareas] = useState([])
+    const tareasLocalStorage = JSON.parse(localStorage.getItem('tareas')) || [];
+    const [tareas, setTareas] = useState([tareasLocalStorage]);
 
     useEffect(()=>{
         // Ejecuta automáticamente este código cuando suceda el ciclo de vida del componente
