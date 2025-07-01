@@ -37,7 +37,7 @@ const formularioTareas = () => {
         <div>
             <Form onSubmit={handleSubmit(agregarTarea)}>
                 <Form.Group className="mb-3 d-flex" controlId="exampleForm.ControlInput1">
-                    <Form.Control type="text" placeholder="Ingresa una tarea" {...register('tarea' , {
+                    <Form.Control  className='bg-light' type="text" placeholder="Ingresa una tarea" {...register('tarea' , {
                         required: 'La tarea es un campo obligatorio',
                         minLength: {
                             value: 3,
