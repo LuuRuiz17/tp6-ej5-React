@@ -1,5 +1,5 @@
-import { Form, Button, FormText } from 'react-bootstrap';
-import ListaTareas from './listaTareas';
+import { Form, Button} from 'react-bootstrap';
+import ListaTareas from './ListaTareas';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 
