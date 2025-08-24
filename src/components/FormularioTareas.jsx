@@ -2,6 +2,7 @@ import { Form, Button, FormText } from 'react-bootstrap';
 import ListaTareas from './listaTareas';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
+import { crearTarea } from '../helpers/queries';
 
 const formularioTareas = () => {
     const {
@@ -27,11 +28,17 @@ const formularioTareas = () => {
     }, [tareas]);
 
     // Función que se va a ejecutar si las validaciones que maneja el handlesubmit son exitosas
-    const agregarTarea = (dato) => {
+    const agregarTarea = async (dato) => {
         console.log(dato.tarea);
         // ... sirve para iterar sobre el array y copiar cada uno de los elementos. Lo uso porque no puede manipular directamente el state. En otras palabras, estoy duplicando mi array en otro lado para poder modificarlo y después cambiarle el valor al state con setState.
         // dato.tarea es lo ques escribió el usuario en el input.
-        setTareas([...tareas, dato.tarea]);
+        const respuesta = await crearTarea(dato)
+        if(respuesta.status === 201){
+            console.log("Tarea creada correctamente")
+            setTareas([...tareas, dato.tarea]);
+        }else{
+            console.log("No se pudo crear la tarea")
+        }
         reset();
     }
 

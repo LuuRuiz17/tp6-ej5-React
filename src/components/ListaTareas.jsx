@@ -11,7 +11,7 @@ const ListaTareas = ({borrarTarea}) => {
         obtenerTareas() 
     } , [])
 
-    const obtenerTareas = async (req, res) => {
+    const obtenerTareas = async () => {
         const respuesta = await listarTareas()
         if(respuesta.status === 200){
             const datos = await respuesta.json()
