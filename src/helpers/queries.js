@@ -2,7 +2,6 @@ const urlTareas = import.meta.env.VITE_API_TAREAS
 
 export const listarTareas = async () => {
     try {
-        console.log(urlTareas);
         const respuesta = await fetch(urlTareas);
         return respuesta
     } catch (error) {
@@ -30,7 +29,6 @@ export const crearTarea = async (tareaNueva) => {
 export const borrarTarea = async (id) => {
     try {
         const url = `${urlTareas}/${id}`;
-        console.log("Intentando borrar tarea en:", url);
         const respuesta = await fetch(url, {
             method: "DELETE",
         });

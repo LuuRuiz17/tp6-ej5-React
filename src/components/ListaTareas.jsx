@@ -16,7 +16,7 @@ const ListaTareas = () => {
       const datos = await respuesta.json();
       setListaDeTareas(datos);
     } else {
-      console.log("Error al lista las tareas");
+      console.log("Error al listar las tareas");
     }
   };
 

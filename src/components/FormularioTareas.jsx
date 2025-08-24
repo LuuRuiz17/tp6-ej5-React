@@ -45,7 +45,6 @@ const formularioTareas = () => {
     const respuesta = await crearTarea(dato);
 
     if (respuesta.status === 201) {
-      console.log("Tarea creada correctamente");
       setTareas([...tareas, dato.tarea]);
       Swal.fire({
         title: "Tarea creada correctamente",
