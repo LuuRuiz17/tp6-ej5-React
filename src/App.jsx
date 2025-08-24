@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FormularioTareas from './components/formularioTareas';
 import Navbar from './components/Navbar';
+import FormularioTareas from './components/FormularioTareas';
 
 function App() {
   return (

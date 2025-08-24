@@ -1,18 +1,37 @@
 import { ListGroup } from "react-bootstrap";
 import ItemTarea from "./itemTarea";
+import { listarTareas } from "../helpers/queries.js";
+import { useEffect, useState } from "react";
 
-const listaTareas = ({tareas, borrarTarea}) => {
+const ListaTareas = ({borrarTarea}) => {
+
+    const [listaDeTareas, setListaDeTareas] = useState([])
+
+    useEffect(()=>{
+        obtenerTareas() 
+    } , [])
+
+    const obtenerTareas = async (req, res) => {
+        const respuesta = await listarTareas()
+        if(respuesta.status === 200){
+            const datos = await respuesta.json()
+            setListaDeTareas(datos)
+        }else{
+            console.log("Error al lista las tareas");
+        }
+    }
+
     return (
         <div>
             <ListGroup className="mt-3">
                 {
                     // Tengo que hacer un bucle para hacer cada ítem del array de tareas.
                     // tareas.map recorre todo el array y, por cada elemento del array, dibujo un ItemTarea
-                    tareas.map((tarea, indice) => <ItemTarea key={indice} nombreTarea = {tarea} borrarTarea = {borrarTarea}></ItemTarea>)
+                    listaDeTareas.map((tarea) => <ItemTarea key={tarea._id} nombreTarea = {tarea.tarea} borrarTarea = {borrarTarea}></ItemTarea>)
                 }
             </ListGroup>
         </div>
     );
 };
 
-export default listaTareas;
+export default ListaTareas;
