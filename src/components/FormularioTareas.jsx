@@ -62,15 +62,6 @@ const formularioTareas = () => {
     reset();
   };
 
-  const borrarTarea = (nombreTarea) => {
-    // Filtrar el state tareas
-    const tareasFiltradas = tareas.filter(
-      (itemTarea) => itemTarea !== nombreTarea
-    );
-    // Actualizamos el state
-    setTareas(tareasFiltradas);
-  };
-
   return (
     <div>
       {/* Invoco el handleSubmit para que realice las validaciones. Ya incluye internamente lo del preventDefault para que no se recargue la página*/}
@@ -103,7 +94,7 @@ const formularioTareas = () => {
         {/* Si ocurre algún error, el objeto errors va a mostrarlo aquí, si no existe lo mantiene oculto. El ?. significa que la propieda es optativa */}
         <Form.Text className="text-danger">{errors.tarea?.message}</Form.Text>
       </Form>
-      <ListaTareas tareas={tareas} borrarTarea={borrarTarea}></ListaTareas>
+      <ListaTareas tareas={tareas}></ListaTareas>
     </div>
   );
 };

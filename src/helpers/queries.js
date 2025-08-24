@@ -5,15 +5,15 @@ export const listarTareas = async () => {
         console.log(urlTareas);
         const respuesta = await fetch(urlTareas);
         return respuesta
-    } catch(error){
+    } catch (error) {
         console.log(error);
         return null
     }
 }
 
 export const crearTarea = async (tareaNueva) => {
-    try{
-        const respuesta = fetch(urlTareas , {
+    try {
+        const respuesta = fetch(urlTareas, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -21,7 +21,21 @@ export const crearTarea = async (tareaNueva) => {
             body: JSON.stringify(tareaNueva) //transformo mis datos a formato JSON
         })
         return respuesta
-    }catch(error){
+    } catch (error) {
+        console.error(error);
+        return null
+    }
+}
+
+export const borrarTarea = async (id) => {
+    try {
+        const url = `${urlTareas}/${id}`;
+        console.log("Intentando borrar tarea en:", url);
+        const respuesta = await fetch(url, {
+            method: "DELETE",
+        });
+        return respuesta
+    } catch (error) {
         console.error(error);
         return null
     }
