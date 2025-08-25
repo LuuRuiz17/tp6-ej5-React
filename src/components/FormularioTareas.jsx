@@ -1,8 +1,8 @@
 import { Form, Button } from "react-bootstrap";
-import ListaTareas from "./listaTareas";
+import ListaTareas from "./ListaTareas";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { crearTarea } from "../helpers/queries";
+import { crearTarea } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const FormularioTareas = () => {

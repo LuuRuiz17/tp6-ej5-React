@@ -1,5 +1,5 @@
 import { ListGroup, Button } from "react-bootstrap";
-import { borrarTarea, editarTarea, obtenerTarea } from "../helpers/queries";
+import { borrarTarea, editarTarea, obtenerTarea } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useEffect } from "react";
