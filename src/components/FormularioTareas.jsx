@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { crearTarea } from "../helpers/queries";
 import Swal from "sweetalert2";
 
-const formularioTareas = () => {
+const FormularioTareas = () => {
   const {
     // Cuando haga click en el botón, va a actuarl el handleSubmit y va a llamar a las validaciones. Si la validación es exitosa, se va a ejecutar la función que definimos
     // Register es una librería en la que se registra cada cosa que tiene el formulario (inputs, selects, etc.). Le indico que registre x cosa con un nombre, y a eso debe validarle x cosa.
@@ -98,4 +98,4 @@ const formularioTareas = () => {
   );
 };
 
-export default formularioTareas;
+export default FormularioTareas;

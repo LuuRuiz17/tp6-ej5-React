@@ -38,3 +38,31 @@ export const borrarTarea = async (id) => {
         return null
     }
 }
+
+export const obtenerTarea = async (id) => {
+    try {   
+        const url = `${urlTareas}/${id}`;
+        const respuesta = await fetch(url);
+        return respuesta
+    } catch (error) {
+        console.error(error);
+        return null
+    }   
+}
+
+export const editarTarea = async (id, tareaEditada) => {
+    try {
+        const url = `${urlTareas}/${id}`;
+        const respuesta = await fetch(url, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(tareaEditada)
+        });
+        return respuesta
+    } catch (error) {
+        console.error(error);
+        return null
+    }
+}
