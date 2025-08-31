@@ -60,9 +60,11 @@ export const editarTarea = async (id, tareaEditada) => {
             },
             body: JSON.stringify(tareaEditada)
         });
-        return respuesta
+        const data = await respuesta.json();
+        // Devolvé status y data
+        return { status: respuesta.status, data };
     } catch (error) {
         console.error(error);
-        return null
+        return { status: 500, data: null };
     }
 }

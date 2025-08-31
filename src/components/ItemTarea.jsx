@@ -65,7 +65,7 @@ const ItemTarea = ({ nombreTarea, id }) => {
     });
 
     if (nuevoNombre) {
-      const respuesta = await editarTarea(id, { nombreTarea: nuevoNombre });
+      const respuesta = await editarTarea(id, { tarea: nuevoNombre });
       if (respuesta.status === 200) {
         Swal.fire({
           title: "Editada!",
